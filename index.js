@@ -17,13 +17,13 @@ app.get('/categories', (req, res) => {
     res.send(categories);
 })
 app.get('/categories/:id', (req, res) => {
-    const id = req.params.id;
-    if (id == 0) {
-        res.send(news);
+    const id = parseInt(req.params.id);
+    if (id === 0) {
+        res.send(news)
     }
     else {
-        const categoryNews = news.filter(n => n.category_id === id);
-        res.send(categoryNews);
+        const categoryNews = news.filter(n => parseInt(n.category_id) === id);
+        res.send(categoryNews)
     }
 })
 
